@@ -29,12 +29,17 @@ namespace Back.Controllers
 
         // GET: api/Products
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Product>>> GetProducts([FromQuery] CategoryEnum category, [FromQuery] ProductSort sort)
+        public async Task<ActionResult<IEnumerable<Product>>> GetProducts([FromQuery] CategoryEnum category, [FromQuery] ProductSort sort, string searchQuery)
         {
             IQueryable<Product> query = _context.Products;
             if (category != CategoryEnum.Other)
             {
                 query = query.Where(p => p.Category == category);
+            }
+
+            if (!String.IsNullOrEmpty(searchQuery))
+            {
+                query = query.Where(p => p.Name.Contains(searchQuery));
             }
 
             switch (sort)

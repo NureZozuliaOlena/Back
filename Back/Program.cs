@@ -22,7 +22,7 @@ namespace Back
                 try
                 {
                     var appContext = services.GetRequiredService<AppContext>();
-                    //initialize Admin here
+                    AdminInitializer.InitAdmins(appContext);
                 }
                 catch
                 {

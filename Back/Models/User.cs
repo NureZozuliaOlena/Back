@@ -1,3 +1,5 @@
+﻿using Back.Enums;
+
 namespace Back.Models
 {
     public class User : UserBase

@@ -1,5 +1,7 @@
 ﻿using Back.Models;
 using Microsoft.EntityFrameworkCore;
+using static Microsoft.AspNetCore.Razor.Language.TagHelperMetadata;
+using static System.Collections.Specialized.BitVector32;
 
 namespace Back
 {
@@ -23,7 +25,7 @@ namespace Back
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=Confectionery;Trusted_Connection=True");
+            optionsBuilder.UseSqlServer("Server=tcp:thesweetspot.database.windows.net,1433;Initial Catalog=Confectionery;Persist Security Info=False;User ID=sqlserver;Password=Aa12345678;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

@@ -1,3 +1,5 @@
+﻿using System.Data;
+
 namespace Back.Models
 {
     public class Admin : UserBase

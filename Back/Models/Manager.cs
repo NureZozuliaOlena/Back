@@ -1,4 +1,4 @@
-namespace Back.Models
+﻿namespace Back.Models
 {
     public class Manager : UserBase
     {

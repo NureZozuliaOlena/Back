@@ -1,5 +1,5 @@
+﻿using Back.Enums;
 using System;
-using Back.Enums;
 
 namespace Back.Models
 {
