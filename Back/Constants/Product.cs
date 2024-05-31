@@ -1,4 +1,4 @@
-namespace Back.Constants
+﻿namespace Back.Constants
 {
     public static class Product
     {

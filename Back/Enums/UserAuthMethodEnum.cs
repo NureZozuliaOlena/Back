@@ -1,4 +1,4 @@
-namespace Back.Enums
+﻿namespace Back.Enums
 {
     public enum UserAuthMethodEnum
     {

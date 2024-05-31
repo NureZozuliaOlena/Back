@@ -24,7 +24,6 @@ namespace Back.Controllers
             _context = context;
         }
 
-        // GET: api/Carts/5
         [Authorize]
         [HttpGet]
         public async Task<ActionResult<Cart>> GetCart()
@@ -43,6 +42,7 @@ namespace Back.Controllers
 
             var cart = await _context.Carts
                                      .Include(c => c.CartProducts)
+                                     .ThenInclude(c => c.Product)
                                      .FirstOrDefaultAsync(c => c.UserId == user.Id && c.IsActive);
             if (cart == null)
             {
@@ -56,6 +56,7 @@ namespace Back.Controllers
                 await _context.SaveChangesAsync();
                 cart = await _context.Carts
                                      .Include(c => c.CartProducts)
+                                     .ThenInclude(c => c.Product)
                                      .FirstOrDefaultAsync(c => c.Id == newCart.Id);
             }
 

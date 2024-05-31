@@ -65,6 +65,9 @@ namespace Back.Controllers
             var userOrders = await _context.Orders
                 .Include(o => o.Cart)
                 .ThenInclude(c => c.User)
+                .Include(o => o.Cart)
+                .ThenInclude(o => o.CartProducts)
+                .ThenInclude(c => c.Product)
                 .Where(o => o.Cart.UserId == user.Id)
                 .ToListAsync();
             return Ok(userOrders);
