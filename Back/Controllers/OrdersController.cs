@@ -27,7 +27,9 @@ namespace Back.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Order>>> GetOrders()
         {
-            return await _context.Orders.ToListAsync();
+            return await _context.Orders
+                .Include(c => c.Cart).ThenInclude(c => c.User)
+                .Include(c => c.Cart).ThenInclude(c => c.CartProducts).ThenInclude(c => c.Product).ToListAsync();
         }
 
         [HttpGet("{id}")]

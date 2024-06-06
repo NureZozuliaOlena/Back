@@ -28,7 +28,7 @@ namespace Back.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Review>>> GetReviews()
         {
-            return await _context.Reviews.ToListAsync();
+            return await _context.Reviews.Include(c => c.Product).Include(c => c.User).ToListAsync();
         }
 
         // GET: api/Reviews/5
